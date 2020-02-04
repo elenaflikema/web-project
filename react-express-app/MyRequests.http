@@ -1,0 +1,30 @@
+
+POST http://localhost:5000/subscribers/
+Content-Type: application/json
+
+{
+    "subscribedToChannel": "New Channel",
+    "name": "New Person"
+}
+
+###
+
+GET http://localhost:5000/subscribers/
+
+###
+
+GET http://localhost:5000/subscribers/5e3958473f55ff1dd09388c6
+
+//New Person
+
+###
+
+
+PATCH http://localhost:5000/subscribers/5e3958473f55ff1dd09388c6
+Content-Type: application/json
+
+{
+  "name": "New Updated Person"
+}
+
+###
