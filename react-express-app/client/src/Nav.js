@@ -13,12 +13,11 @@ class Nav extends Component {
             <nav>
                 <ul className="nav-links">
                     <Link to="/login" style={navStyle}><h3>Login</h3></Link>
-                    <Link to="/shop" style={navStyle}><h3>Shop</h3></Link>
+                    <Link to="/users" style={navStyle}><h3>Users</h3></Link>
                 </ul>
             </nav>
         );
     }
-
 }
 
 export default Nav;

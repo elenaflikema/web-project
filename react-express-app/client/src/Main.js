@@ -1,6 +1,6 @@
 import React,{ Component } from 'react';
 import Nav from './Nav';
-import Shop from './Shop';
+import UsersList from './UsersList';
 import Login from './Login';
 import ItemDetail from './ItemDetail';
 
@@ -16,8 +16,8 @@ class Main extends Component {
                 <Switch>
                     <Route path="/" exact component={Home} />
                     <Route path="/login" component={Login} />
-                    <Route path="/shop" exact component={Shop} />
-                    <Route path="/shop/:id" component={ItemDetail}/>
+                    <Route path="/users" exact component={UsersList} />
+                    <Route path="/users/:id" component={ItemDetail}/>
                 </Switch>
             </Router>
         );
