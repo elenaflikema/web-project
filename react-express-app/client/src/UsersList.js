@@ -1,6 +1,6 @@
 import React,{ useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Row } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 
 function UsersList() {
 
@@ -22,9 +22,14 @@ function UsersList() {
                 items.map((item, index) => {
                     return (
                         <Row>
-                            <Link to={`/users/${item._id}`}>
-                                {item.name}&nbsp;{item._id}
-                            </Link>
+                            <Col>
+                                Lalala
+                            </Col>
+                            <Col>
+                                <Link to={`/users/${item._id}`}>
+                                    {item.name}&nbsp;{item._id}
+                                </Link>
+                            </Col>
                         </Row>
                     );
                 })

@@ -3,18 +3,26 @@ import { Nav } from 'react-bootstrap';
 
 class Navigation extends Component {
 
-    render() {
 
+    render() {
+        const { onTabChange, selectedTab } = this.props;
+
+        console.info(selectedTab)
         return (
-            <Nav variant="tabs" defaultActiveKey="/login">
+            <Nav justify variant="pills" activeKey={selectedTab} onSelect={onTabChange}>
                 <Nav.Item>
-                    <Nav.Link href="/login" >
+                    <Nav.Link eventKey="login" href="/login" >
                         Login
                     </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link eventKey="link-1" href="/users">
+                    <Nav.Link eventKey="users" href="/users">
                         Users
+                    </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link eventKey="users" href="/users">
+                        Contacts
                     </Nav.Link>
                 </Nav.Item>
             </Nav>

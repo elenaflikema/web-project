@@ -9,10 +9,20 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class Main extends Component {
 
+    state = {
+        selectedTab : 'login'
+    };
+
     render() {
+        const {selectedTab} = this.state;
+        const onChange = (selectedTab) => {
+            console.info(selectedTab)
+            this.setState({selectedTab});
+        }
+
         return (
             <Router>
-                <Navigation/>
+                <Navigation selectedTab={selectedTab} onTabChabged={onChange}/>
                 <React.Fragment>
                     <Switch>
                         <Route path="/" exact component={Home} />
