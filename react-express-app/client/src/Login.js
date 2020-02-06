@@ -1,5 +1,4 @@
 import React,{ Component } from 'react';
-import { Input } from 'react-dom';
 
 export default class Login extends Component {
 
@@ -19,7 +18,7 @@ export default class Login extends Component {
 
     render() {
         const { auth } = this.state;
-        console.info(auth)
+
         return (
             <div>
                 This is a login page

@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 
 const  mongoose = require('mongoose');
 
-mongoose.connect(process.env.DATABASE_URL_REMOTE, { useUnifiedTopology: true, useNewUrlParser: true});
+mongoose.connect(process.env.DATABASE_URL, { useUnifiedTopology: true, useNewUrlParser: true});
 
 mongoose.connection
     .once('open', () => console.log('Connected to MongoLab instance.'))

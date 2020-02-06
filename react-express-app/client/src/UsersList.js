@@ -1,5 +1,6 @@
 import React,{ useState, useEffect } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { Container, Row } from 'react-bootstrap';
 
 function UsersList() {
 
@@ -16,20 +17,19 @@ function UsersList() {
     };
 
     return (
-        <div>
+        <Container>
             {
                 items.map((item, index) => {
-                    console.info(item)
                     return (
-                        <div>
+                        <Row>
                             <Link to={`/users/${item._id}`}>
                                 {item.name}&nbsp;{item._id}
                             </Link>
-                        </div>
+                        </Row>
                     );
                 })
             }
-        </div>
+        </Container>
     );
 }
 
