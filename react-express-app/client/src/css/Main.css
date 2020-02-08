@@ -1,0 +1,39 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Major Mono Display', monospace;
+    background-color: black;
+    background-image: url("../img/avatar11.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+}
+.name {
+    display: inline-block;
+}
+
+.header {
+    color: white;
+    margin: 0;
+    padding: 10px 10px 30px 20px;
+    text-align: center;
+}
+
+.brand {
+    color: white;
+}
+
+.nav-link {
+    list-style: none;
+    color: white;
+}
+
+.block {
+    padding: 20px;
+}
+
+.main {
+    padding: 0;
+    margin: 0;
+    height: 2000px;
+}
+
