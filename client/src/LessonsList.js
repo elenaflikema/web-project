@@ -4,7 +4,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 
 import './css/Main.css';
 
-function UsersList() {
+function LessonsList() {
 
     useEffect(() => {
         fetchData();
@@ -25,10 +25,10 @@ function UsersList() {
                     return (
                         <Row>
                             <Col xs={2}>
-                                Lalala {index}
+                                Lesson № {index+1}
                             </Col>
                             <Col className="nav-links">
-                                <Link className="nav-links" to={`/users/${item._id}`}>
+                                <Link className="nav-links" to={`/lessons/${item._id}`}>
                                     {item.name}&nbsp;{item._id}
                                 </Link>
                             </Col>
@@ -40,4 +40,4 @@ function UsersList() {
     );
 }
 
-export default UsersList;
+export default LessonsList;

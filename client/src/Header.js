@@ -1,18 +1,21 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './css/Main.css';
+import {Navbar, Button} from "react-bootstrap";
+import Login from './Login';
 
-export function Header() {
+class Header extends Component {
 
-    return (
-        <div className="header">
-            <h1>
-                <div className="name">J O S H U A</div>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <div className="name">F L I C K E M A</div>
-            </h1>
-            <div className="accent">
-                Professional English Teacher
-            </div>
-        </div>
-    );
+    render() {
+        return (
+            <Navbar className="header">
+                <Navbar.Brand href="#home">Virtual English class</Navbar.Brand>
+                <Navbar.Toggle/>
+                <Navbar.Collapse className="justify-content-end">
+                    <Login />
+                </Navbar.Collapse>
+            </Navbar>
+        );
+    }
 }
+
+export default Header;
