@@ -2,6 +2,16 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/user');
 
+
+const Joi = require('@hapi/joi');
+
+const validationSchema = {
+    name: Joi.string().min(6).required(),
+    email: Joi.string().min(6).required().email(),
+    password: Joi.string().min(6).required()
+};
+
+
 router.post('/', async (req, res) => {
     const user = new User({
         name: req.body.name,

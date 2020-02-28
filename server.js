@@ -18,10 +18,10 @@ mongoose.connection
 app.use(express.json());
 
 const subscribersRouter = require('./routes/subscribers');
-app.use('/subscribers', subscribersRouter)
+app.use('/subscribers', subscribersRouter);
 
 const authRouter = require('./routes/auth');
-app.use('/auth', authRouter)
+app.use('/auth', authRouter);
 
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files

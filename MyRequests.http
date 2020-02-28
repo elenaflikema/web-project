@@ -33,7 +33,7 @@ POST http://localhost:5000/auth/
 Content-Type: application/json
 
 {
-  "name": "admin",
+  "name": "admin1",
   "email": "admin@sh.com",
   "password": "123123"
 }
