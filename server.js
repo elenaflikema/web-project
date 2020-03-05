@@ -23,6 +23,10 @@ app.use('/subscribers', subscribersRouter);
 const authRouter = require('./routes/auth');
 app.use('/auth', authRouter);
 
+
+const postRouter = require('./routes/post');
+app.use('/posts', postRouter);
+
 if (process.env.NODE_ENV === 'production') {
     // Serve any static files
     app.use(express.static(path.join(__dirname, 'client/build')));

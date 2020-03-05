@@ -29,13 +29,30 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5000/auth/
+POST http://localhost:5000/auth/register
 Content-Type: application/json
 
 {
-  "name": "admin1",
-  "email": "admin@sh.com",
+  "name": "el12345",
+  "email": "elena115812223@mail.com",
   "password": "123123"
 }
+
+###
+
+###
+
+POST http://localhost:5000/auth/login
+Content-Type: application/json
+
+{
+  "email": "elena115812223@mail.com",
+  "password": "123123"
+}
+
+###
+
+GET http://localhost:5000/posts/
+auth-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZTYxNGY3ZDNkN2I0ODU4YmNmYWE2YzUiLCJpYXQiOjE1ODM0MzczOTR9.XS_U5L56DHqy2WNeRPOJ6l251UxhsRvfdA-oeB59E58
 
 ###
