@@ -1,8 +1,12 @@
 import React,{ useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
+import { increment } from './redux/actions';
 
 import './css/Main.css';
+import { useSelector, useDispatch } from "react-redux";
+
+import LessonCard from './LessonCard';
 
 function LessonsList() {
 
@@ -11,6 +15,7 @@ function LessonsList() {
     }, []);
 
     const [ items, setItems ] = useState([]);
+    const dispatch = useDispatch();
 
     const fetchData = async () => {
         const response = await fetch('/subscribers');
@@ -22,18 +27,7 @@ function LessonsList() {
         <Container className="block">
             {
                 items.map((item, index) => {
-                    return (
-                        <Row>
-                            <Col xs={2}>
-                                Lesson № {index+1}
-                            </Col>
-                            <Col className="nav-links">
-                                <Link className="nav-links" to={`/lessons/${item._id}`}>
-                                    {item.name}&nbsp;{item._id}
-                                </Link>
-                            </Col>
-                        </Row>
-                    );
+                    return (<LessonCard id={item._id} index={index} key={index}/>);
                 })
             }
         </Container>

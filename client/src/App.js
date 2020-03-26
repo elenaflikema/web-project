@@ -1,42 +1,40 @@
 import React,{ Component } from 'react';
+import { Navigation } from './Navigation';
+import LessonsList from './LessonsList';
+import Login from './LoginPopup';
+import ItemDetail from './ItemDetail';
+import { Container } from 'react-bootstrap';
+import Header from './Header';
 
-class App extends Component {
-	state = {
-		renderedResponse: ''
-	}
+import './css/Main.css';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-  getResponse = async() => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
-	
-    if (response.status !== 200) throw Error(body.message);
-	
-    return body;
-  }
+class Main extends Component {
 
-  componentDidMount() {
-      this.getResponse().then(res => {
-          const someData = res;
-		  console.info(someData)
-          this.setState({renderedResponse: someData});
-		  
-      });
-  }
-
-  render() {
-
-      const { renderedResponse } = this.state;
-
-      return (
-          <div>
-			  Learn React
-			  <div>
-				  {renderedResponse.express}
-			  </div>
-          </div>
-      );
-  }
-
+    render() {
+        return (
+            <div className="main" >
+                <Header />
+                <Container>
+                    <Router>
+                        <Navigation/>
+                        <React.Fragment className="block">
+                            <Switch>
+                                <Route path="/" exact component={Home} />
+                                <Route path="/lessons" exact component={LessonsList} />
+                                <Route path="/lessons/:id" component={ItemDetail}/>
+                                <Route path="/progress" component={Login} />
+                            </Switch>
+                        </React.Fragment>
+                    </Router>
+                </Container>
+            </div>
+        );
+    }
 }
 
-export default App;
+const Home = () => {
+    return <div>Home page</div>;
+};
+
+export default Main;

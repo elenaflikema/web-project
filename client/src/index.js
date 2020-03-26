@@ -1,7 +1,22 @@
-import React, { Component } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
-import Main from './Main';
+import App from './App';
+import { createStore } from 'redux';
+import combinedReducer from './redux/reducers';
+import { Provider } from 'react-redux';
 
-console.info(typeof Component);
-console.info(typeof React);
-ReactDOM.render(<Main />, document.getElementById('root'));
+// STORE - globalized state
+
+let store = createStore(
+    combinedReducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+
+store.subscribe(() => console.log(store.getState()));
+// DISPATCH
+
+ReactDOM.render(
+    <Provider store={store}>
+        <App />
+    </Provider>, document.getElementById('root'));
+

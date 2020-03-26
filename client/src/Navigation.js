@@ -8,13 +8,13 @@ export class Navigation extends Component {
 
             <Nav fill variant="tabs" defaultActiveKey="/home">
                 <Nav.Item>
-                    <Nav.Link href="/lessons">Lessons</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/progress" eventKey="link-1">Your progress</Nav.Link>
+                    <Nav.Link href="/blog" eventKey="link-1">My Blog</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link href="/catalog" eventKey="link-2">Catalog</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link href="/lessons">Lessons</Nav.Link>
                 </Nav.Item>
             </Nav>
         );
