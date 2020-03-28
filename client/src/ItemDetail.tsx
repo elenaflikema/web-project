@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from 'react';
 
-function ItemDetail({match}) {
+function ItemDetail({match}): React.ReactNode {
 
     useEffect(() => {
         fetchData();

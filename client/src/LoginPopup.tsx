@@ -7,7 +7,8 @@ class LoginPopupContainer extends Component {
 
     state = {
         email: '',
-        password: ''
+        password: '',
+        show: false
     };
 
     componentDidMount() {
@@ -27,13 +28,13 @@ class LoginPopupContainer extends Component {
             body: JSON.stringify({ email, password })
         }).then(
             successResponse => {
-                if (successResponse.status != 200) {
+                if (successResponse.ok) {
                     return null;
                 } else {
                     return successResponse.text();
                 }
             },
-            failResponse => {
+            () => {
                 return null;
             }
         ).then(text => {
@@ -46,11 +47,11 @@ class LoginPopupContainer extends Component {
 
     };
 
-    setShow = (show) => {
+    setShow = (show: boolean) => {
         this.setState({ ...this.state, show});
     };
 
-    formChange = (event) => {
+    formChange = (event: React.ChangeEvent<HTMLFormElement>) => {
         const { target: { value, name } } = event ;
 
         this.setState({
@@ -108,14 +109,14 @@ class LoginPopupContainer extends Component {
     }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: { login: any; counter: any; }) => {
     return {
         isLogged: state.login,
         counter: state.counter
     }
 };
 
-const dispatchToProps = dispatch => {
+const dispatchToProps = (dispatch: (arg0: { type: string; }) => any) => {
     return {
         increment: () => dispatch(increment())
     }

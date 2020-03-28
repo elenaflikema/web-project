@@ -5,7 +5,6 @@ export class Navigation extends Component {
 
     render() {
         return (
-
             <Nav fill variant="tabs" defaultActiveKey="/home">
                 <Nav.Item>
                     <Nav.Link href="/blog" eventKey="link-1">My Blog</Nav.Link>

@@ -1,3 +1,4 @@
+// @ts-ignore
 import React,{ Component } from 'react';
 import { Navigation } from './Navigation';
 import LessonsList from './LessonsList';
@@ -18,7 +19,7 @@ class Main extends Component {
                 <Container>
                     <Router>
                         <Navigation/>
-                        <React.Fragment className="block">
+                        <React.Fragment>
                             <Switch>
                                 <Route path="/" exact component={Home} />
                                 <Route path="/lessons" exact component={LessonsList} />
