@@ -11,7 +11,7 @@ export class Navigation extends Component {
                     <Nav.Link href="/blog" eventKey="link-1">My Blog</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href="/catalog" eventKey="link-2">Catalog</Nav.Link>
+                    <Nav.Link href="/tests" eventKey="link-2">Tests</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                     <Nav.Link href="/lessons">Lessons</Nav.Link>

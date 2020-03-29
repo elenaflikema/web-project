@@ -1,6 +1,6 @@
 import React,{ useEffect, useState } from 'react';
 
-function ItemDetail({match}) {
+function LessonDetail({match}) {
 
     useEffect(() => {
         fetchData();
@@ -14,7 +14,6 @@ function ItemDetail({match}) {
         setItem(itemDetails)
     };
 
-    console.info(item)
     return (
         <div>
             {match.params.id}&nbsp;{item.express}
@@ -22,4 +21,4 @@ function ItemDetail({match}) {
     );
 }
 
-export default ItemDetail;
+export default LessonDetail;
