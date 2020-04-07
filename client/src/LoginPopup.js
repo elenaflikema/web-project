@@ -3,6 +3,8 @@ import {Form, Button, Modal} from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { increment } from './redux/actions';
 
+import './css/Button.scss'; // Tell webpack that Button.js uses these styles
+
 class LoginPopupContainer extends Component {
 
     state = {
@@ -71,9 +73,9 @@ class LoginPopupContainer extends Component {
 
         return (
             <>
-                <Button variant="primary" onClick={handleShow}>
+                <button className="Button" onClick={handleShow}>
                     Login
-                </Button>
+                </button>
                 <Modal show={show} onHide={handleClose} animation={false}>
                     <Modal.Header closeButton>
                         <Modal.Title>Log in to your account</Modal.Title>

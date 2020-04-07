@@ -1,0 +1,17 @@
+.wrapper {
+  position: absolute;
+  width: 50vw;
+  height: 50vh;
+  border: 1px solid #ccc;
+  transition: margin .5s;
+  margin: 0 0 0 -100vw;
+  background-color: #d7e1e9;
+  top: 60px;
+  z-index: 1000;
+}
+
+.wrapper.is-nav-open{
+    margin-left: 0px;
+}
+
+

@@ -1,22 +1,25 @@
 import React,{ Component } from 'react';
-import { Nav } from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
-export class Navigation extends Component {
+export default class Navigation extends Component {
+
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         return (
-
-            <Nav fill variant="tabs" defaultActiveKey="/home">
-                <Nav.Item>
-                    <Nav.Link href="/blog" eventKey="link-1">My Blog</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/tests" eventKey="link-2">Tests</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/lessons">Lessons</Nav.Link>
-                </Nav.Item>
-            </Nav>
+            <ul onClick={() => this.props.onNavigate()}>
+                <li>
+                    <Link to="/blog">My Blog</Link>
+                </li>
+                <li>
+                    <Link to="/tests">Tests</Link>
+                </li>
+                <li>
+                    <Link to="/lessons">Lessons</Link>
+                </li>
+            </ul>
         );
     }
 }

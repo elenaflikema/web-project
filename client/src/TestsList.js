@@ -1,7 +1,117 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 
-class TestsList extends Component {
+import './css/Button.scss';
+
+const EMPTY_QUESTION = {
+    question: '',
+    variant1: '',
+    variant2: '',
+    variant3: '',
+    answer: ''
+};
+
+export const TestsList = () => {
+
+    const [ questionsList, editQuestionsList ] = useState([]);
+    const [ currentQuestion, setCurrentQuestion ] = useState(EMPTY_QUESTION);
+
+    const saveQuestion = (e) => {
+        e.preventDefault();
+        editQuestionsList([
+            ...questionsList,
+            currentQuestion
+        ]);
+        setCurrentQuestion(EMPTY_QUESTION);
+    };
+
+    const removeQuestion = () => {
+        console.info('removed')
+    }
+
+
+    const editCurrentQuestion = (e) => {
+        e.preventDefault();
+
+        const { target: {name, value}} = e;
+
+        setCurrentQuestion({
+                ...currentQuestion,
+                [name]: value
+            }
+        )
+    };
+
+    const renderTestForm = () => {
+
+        return (
+            <Form onSubmit={saveQuestion}>
+                <Form.Row>
+                    <Form.Label column="lg" lg={2}>
+                        Test Name
+                    </Form.Label>
+                    <Col>
+                        <Form.Control size="lg" type="text" placeholder="Enter Test Name" />
+                    </Col>
+                </Form.Row>
+                <hr />
+                <Form.Row>
+                    <Form.Label column="lg" lg={2}>
+                        Question №{questionsList.length + 1}
+                    </Form.Label>
+                </Form.Row>
+                <Form.Control value={currentQuestion.question} onChange={editCurrentQuestion} as="textarea" name="question" rows="3" />
+                <Form.Row>
+                    <Form.Label column>Variants:</Form.Label>
+                </Form.Row>
+                <Form.Group>
+                    <Form.Control value={currentQuestion.variant1} onChange={editCurrentQuestion} name="variant1" type="text" placeholder="Variant 1" />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control value={currentQuestion.variant2} onChange={editCurrentQuestion} name="variant2" type="text" placeholder="Variant 2" />
+                </Form.Group>
+                <Form.Group>
+                    <Form.Control value={currentQuestion.variant3} onChange={editCurrentQuestion} name="variant3" type="text" placeholder="Variant 3" />
+                </Form.Group>
+                <Form.Row>
+                    <Form.Label column>Right answer:</Form.Label>
+                </Form.Row>
+                <Form.Group>
+                    <Form.Control value={currentQuestion.answer} onChange={editCurrentQuestion} name="answer" type="text" placeholder="Right Answer" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Save Question
+                </Button>
+            </Form>
+        )
+    };
+
+    const renderQuestionList = () => {
+        return questionsList.map(({ question, answer }, index) => {
+            return (
+                <React.Fragment>
+                    <h3>Question №{index+1}</h3>
+                    <div>{question}</div>
+                    <div>{answer}</div>
+                    <Button variant="primary" size="sm" onClick={() => removeQuestion(index)}>
+                        Remove
+                    </Button>
+                    <hr />
+                </React.Fragment>
+            );
+        })
+    };
+
+    return (
+        <Container>
+            {renderTestForm()}
+            <hr />
+            {renderQuestionList()}
+        </Container>
+    );
+};
+
+/*class TestsList extends Component {
 
     state = {
         editMode: false,
@@ -38,28 +148,7 @@ class TestsList extends Component {
         })
     };
 
-    handleFormChange = (event) => {
-        const { target: { value, name } } = event ;
 
-        this.setState({
-            currentQuestion : {
-                ...this.state.currentQuestion,
-                [name]: value
-            }
-        });
-    };
-
-    renderAddButton() {
-        return (
-            <Row>
-                <Col>
-                    <Button onClick={this.openForm}>
-                        Add New Test
-                    </Button>
-                </Col>
-            </Row>
-        );
-    }
 
     renderTestForm() {
 
@@ -112,12 +201,15 @@ class TestsList extends Component {
     renderQuestionList() {
         return this.state.questionsList.map(({ question, answer }, index) => {
             return (
-                <>
+                <React.Fragment>
                     <h3>Question №{index+1}</h3>
                     <div>{question}</div>
                     <div>{answer}</div>
+                    <Button variant="primary" size="sm" onClick={() => this.removeQuestion(index)}>
+                        Remove
+                    </Button>
                     <hr />
-                </>
+                </React.Fragment>
             );
         })
     }
@@ -134,4 +226,4 @@ class TestsList extends Component {
     }
 }
 
-export default TestsList;
+export default TestsList;*/

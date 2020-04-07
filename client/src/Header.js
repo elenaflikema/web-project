@@ -1,21 +1,52 @@
-import React, {Component} from 'react';
-import './css/Main.css';
-import {Navbar} from "react-bootstrap";
+import React, { Component } from 'react';
 import LoginPopup from './LoginPopup';
+import { Link } from 'react-router-dom';
+import  Navigation from './Navigation';
 
-class Header extends Component {
+import './css/Main.scss';
+import './css/SideMenu.scss';
+
+
+export default class Header extends Component {
+    constructor(props) {
+        super(props);
+        this.wrapperRef = React.createRef();
+    }
+
+    handleClick() {
+        const wrapper = this.wrapperRef.current;
+        wrapper.classList.toggle('is-nav-open');
+    }
 
     render() {
         return (
-            <Navbar className="header">
-                <Navbar.Brand href="#home">Welcome to Virtual English Class</Navbar.Brand>
-                <Navbar.Toggle/>
-                <Navbar.Collapse className="justify-content-end">
-                    <LoginPopup />
-                </Navbar.Collapse>
-            </Navbar>
+            <>
+                <header className="mainHeader">
+                    <div>
+                        <button
+                            className="Button"
+                            onClick={() => this.handleClick()}
+                        >
+                            {'<'}
+                        </button>
+                        <Link to="/" className="brandName">
+                            English Class
+                        </Link>
+                    </div>
+                    <nav>
+                        <LoginPopup />
+                    </nav>
+                </header>
+                <div ref={this.wrapperRef} className="wrapper">
+                    <div className="nav">
+                        <div className="nav__body">
+                            <Navigation
+                                onNavigate={() => this.handleClick()}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </>
         );
     }
 }
-
-export default Header;

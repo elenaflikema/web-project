@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { Container, Row, Col } from 'react-bootstrap';
 import { increment } from './redux/actions';
 
-import './css/Main.css';
+import './css/Main.scss';
 import { useSelector, useDispatch } from "react-redux";
 
 import LessonCard from './LessonCard';
